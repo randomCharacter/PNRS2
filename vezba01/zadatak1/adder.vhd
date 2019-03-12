@@ -21,7 +21,7 @@ C_s <= B_in when B_in(7) = '0' else
         "1" & (-B_in(6 downto 0));
 
 Rez_out <= (A_in(7) & A_in) + (C_s (7) & C_s) when Sel_in = '0' else
-           (A_in(7) & A_in) + (C_s (7) & C_s);
+           (A_in(7) & A_in) - (C_s (7) & C_s);
 
 end Behavioral;
 
