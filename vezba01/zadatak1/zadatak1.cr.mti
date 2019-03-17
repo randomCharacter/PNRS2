@@ -1,0 +1,19 @@
+//VBOXSVR/xp_questa/vezba01/zadatak1/adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/xp_questa/vezba01/zadatak1/adder.vhd
+QuestaSim vcom 10.4c Compiler 2015.07 Jul 20 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity adder
+-- Compiling architecture Behavioral of adder
+
+} {} {}} //VBOXSVR/xp_questa/vezba01/zadatak1/adder_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none //VBOXSVR/xp_questa/vezba01/zadatak1/adder_tb.vhd
+QuestaSim vcom 10.4c Compiler 2015.07 Jul 20 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_tb
+-- Compiling architecture behavior of adder_tb
+
+} {} {}}
