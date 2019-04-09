@@ -38,6 +38,7 @@ class scoreboard extends uvm_component;
              and_op: predicted_result = bfm.A & bfm.B;
              xor_op: predicted_result = bfm.A ^ bfm.B;
              mul_op: predicted_result = bfm.A * bfm.B;
+             fun_op: predicted_result = bfm.A + 4 * bfm.B;
            endcase // case (op_set)
          
          if ((bfm.op_set != no_op) && (bfm.op_set != rst_op))

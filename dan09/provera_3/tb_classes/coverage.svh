@@ -22,6 +22,15 @@ class coverage extends uvm_component;
    byte         unsigned        B;
    operation_t  op_set;
 
+   covergroup covergroup_fun;
+     coverpoint op_set {
+        bins fun_once = {fun_op};
+        bins fun_after = (add_op, and_op => fun_op);
+        bins fun_five[] = (fun_op [* 5]);
+     }
+
+   endgroup
+
    covergroup op_cov;
 
       coverpoint op_set {
@@ -99,6 +108,7 @@ endgroup
       super.new(name, parent);
       op_cov = new();
       zeros_or_ones_on_ops = new();
+      covergroup_fun = new();
    endfunction : new
 
    function void build_phase(uvm_phase phase);
@@ -114,6 +124,7 @@ endgroup
          op_set = bfm.op_set;
          op_cov.sample();
          zeros_or_ones_on_ops.sample();
+         covergroup_fun.sample();
       end : sampling_block
    endtask : run_phase
 

@@ -39,6 +39,7 @@ class base_tester extends uvm_component;
       
       phase.raise_objection(this);
       bfm.reset_alu();
+      
       repeat (1000) begin : random_loop
          op_set = get_op();
          iA = get_data();

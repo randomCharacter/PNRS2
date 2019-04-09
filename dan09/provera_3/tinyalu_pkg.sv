@@ -22,18 +22,21 @@ package tinyalu_pkg;
                           and_op = 3'b010,
                           xor_op = 3'b011,
                           mul_op = 3'b100,
+                          fun_op = 3'b101,
                           rst_op = 3'b111} operation_t;
 
 
 `include "coverage.svh"
 `include "base_tester.svh"
 `include "random_tester.svh"
-`include "add_tester.svh"   
+`include "add_tester.svh"
+`include "fun_tester.svh"
 `include "scoreboard.svh"
+`include "scoreboard_fun.svh"
 `include "env.svh"
 `include "random_test.svh"
 `include "add_test.svh"
-   
+`include "fun_test.svh"
    
 endpackage : tinyalu_pkg
    
