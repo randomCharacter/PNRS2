@@ -1,3 +1,0 @@
-vsim -do run.do
-
-
