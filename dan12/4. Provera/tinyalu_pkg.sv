@@ -39,8 +39,7 @@ package tinyalu_pkg;
 `include  "random_tester.svh"
 `include "add_tester.svh"   
 `include "scoreboard.svh"
-`include "command_monitor.svh"
-`include "result_monitor.svh"
+`include "full_monitor.svh"
    
 `include "env.svh"
 

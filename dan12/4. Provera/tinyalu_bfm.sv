@@ -16,8 +16,7 @@
 interface tinyalu_bfm;
    import tinyalu_pkg::*;
    
-   command_monitor command_monitor_h;
-   result_monitor  result_monitor_h;
+   full_monitor full_monitor_h;
 
    byte         unsigned        A;
    byte         unsigned        B;
@@ -79,20 +78,20 @@ interface tinyalu_bfm;
         new_command = 1;
       else
         if (new_command) begin 
-           command_monitor_h.write_to_monitor(A, B, op);
+           full_monitor_h.write_to_command_monitor(A, B, op);
            new_command = (op == 3'b000); // handle no_op
         end 
    end : cmd_monitor
 
    always @(negedge reset_n) begin : rst_monitor
-      if (command_monitor_h != null) //guard against VCS time 0 negedge
-         command_monitor_h.write_to_monitor(A, B, rst_op);
+      if (full_monitor_h != null) //guard against VCS time 0 negedge
+         full_monitor_h.write_to_command_monitor(A, B, rst_op);
    end : rst_monitor
    
 
    always @(posedge clk) begin : rslt_monitor
          if (done) 
-           result_monitor_h.write_to_monitor(result);
+           full_monitor_h.write_to_result_monitor(result);
    end : rslt_monitor
    
 
