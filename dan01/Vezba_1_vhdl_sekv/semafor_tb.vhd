@@ -3,14 +3,14 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
- 
+
 ENTITY semafor_tb IS
 END semafor_tb;
- 
-ARCHITECTURE behavior OF semafor_tb IS 
- 
+
+ARCHITECTURE behavior OF semafor_tb IS
+
     -- Component Declaration for the Unit Under Test (UUT)
- 
+
     COMPONENT semafor
     PORT(
          clk : IN  std_logic;
@@ -20,7 +20,7 @@ ARCHITECTURE behavior OF semafor_tb IS
          RGB_B : OUT  std_logic_vector(2 downto 0)
         );
     END COMPONENT;
-    
+
 
    --Inputs
    signal clk : std_logic := '0';
@@ -33,9 +33,9 @@ ARCHITECTURE behavior OF semafor_tb IS
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
- 
+
 BEGIN
- 
+
 	-- Instantiate the Unit Under Test (UUT)
    uut: semafor PORT MAP (
           clk => clk,
@@ -53,17 +53,19 @@ BEGIN
 		clk <= '1';
 		wait for clk_period/2;
    end process;
- 
+
 
    -- Stimulus process
    stim_proc: process
-   begin		
+   begin
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
+      reset_n <= '0';
+      wait for 100 ns;
+      reset_n <= '1';
 
       wait for clk_period*10;
 
-      -- insert stimulus here 
+      -- insert stimulus here
 
       wait;
    end process;
