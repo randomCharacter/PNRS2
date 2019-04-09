@@ -33,10 +33,11 @@ class coverage;
 
          bins sngl_mul[] = ([add_op:xor_op],no_op => mul_op);
          bins mul_sngl[] = (mul_op => [add_op:xor_op], no_op);
+		 bins fun = {fun_op};
 
          bins twoops[] = ([add_op:mul_op] [* 2]);
          bins manymult = (mul_op [* 3:5]);
-
+		 bins fun_after_add = (add_op => fun_op);
 
       }
 
@@ -114,9 +115,3 @@ endgroup
    endtask : execute
 
 endclass : coverage
-
-
-
-
-
-

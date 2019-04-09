@@ -31,7 +31,7 @@ class tester;
         3'b010 : return and_op;
         3'b011 : return xor_op;
         3'b100 : return mul_op;
-        3'b101 : return no_op;
+        3'b101 : return fun_op;
         3'b110 : return rst_op;
         3'b111 : return rst_op;
       endcase // case (op_choice)
@@ -63,6 +63,10 @@ class tester;
       bfm.send_op(iA, iB, op_set, result);
       op_set = rst_op;
       bfm.send_op(iA, iB, op_set, result);
+      op_set = add_op;
+      bfm.send_op(iA, iB, op_set, result);
+      op_set = fun_op;
+      bfm.send_op(iA, iB, op_set, result);
       repeat (10) begin : random_loop
          op_set = get_op();
          iA = get_data();
@@ -74,9 +78,3 @@ class tester;
    endtask : execute
    
 endclass : tester
-
-
-
-
-
-
