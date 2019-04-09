@@ -44,7 +44,7 @@ ARCHITECTURE behavior OF kafa_tb IS
    signal coin_return         : std_logic;
 
    -- Clock period definitions
-   constant clk_period : time := 1 ns;
+   constant clk_period : time := 10 ns;
 
 BEGIN
 
@@ -76,14 +76,61 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin
-      -- hold reset state for 100 ns.
-      wait for 100 ns;
+	-- hold reset state for 100 ns.
+	reset_n <= '0';
+	wait for 100 ns;
 
-      wait for clk_period*10;
+	-- Sve ok
+	reset_n <= '1';
+	coin_avail <= '1';
+	water_avail <= '1';
+	coffee_powder_avail <= '1';
+	plastic_glass_avail <= '1';
+	wait for 200 ns;
+	coin_avail <= '0';
+	wait for 20000 ns;
 
-      -- insert stimulus here
+	-- Nema koina
+	coin_avail <= '0';
+	water_avail <= '1';
+	coffee_powder_avail <= '1';
+	plastic_glass_avail <= '1';
+	wait for 200 ns;
+	coin_avail <= '0';
+	wait for 20000 ns;
 
-      wait;
+	-- Nema vode
+	coin_avail <= '1';
+	water_avail <= '0';
+	coffee_powder_avail <= '1';
+	plastic_glass_avail <= '1';
+	wait for 200 ns;
+	coin_avail <= '0';
+	wait for 20000 ns;
+
+	-- Nema pudera
+	coin_avail <= '1';
+	water_avail <= '1';
+	coffee_powder_avail <= '0';
+	plastic_glass_avail <= '1';
+	wait for 200 ns;
+	coin_avail <= '0';
+	wait for 20000 ns;
+
+	-- Nema casa
+	coin_avail <= '1';
+	water_avail <= '1';
+	coffee_powder_avail <= '1';
+	plastic_glass_avail <= '0';
+	wait for 200 ns;
+	coin_avail <= '0';
+	wait for 20000 ns;
+
+
+
+	-- insert stimulus here
+
+	wait;
    end process;
 
 END;
